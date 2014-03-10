@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+	<body>
+	
+	<h2>I am not inside an AngularJS app</h2>
+	<div ng-app="embeddedApp">
+		<h3>Inside an AngularJS app</h3>	
+		
+		<div ng-controller="MyController">
+		{{ person.name}}
+			<div ng-controller="ParentController">
+			<div ng-controller="ChildController">
+			<input type="text" ng-model="person.name" placeholder="Name"></input>
+			<a ng-click=sayHello()>Say Hello</a>
+				</div>
+			{{ person }}
+			</div>
+		</div>
+		
+		<div ng-controller="PlayerController">
+			<button ng-click="play()" class="button" ng-show="!playing">Play</button>
+			<button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
+			Playing audio: <b>{{ playing }}</b>
+		</div>
+		
+		<div ng-controller="MyController">
+			<input type="text" ng-model="person.name" placeholder="Enter your name" />
+			<h5>Hello {{ person.name }} </h5>
+			<h5> {{ clock }} </h5>
+		</div>
+		
+		<div ng-controller="DemoController">
+			<h4> The simplest adding machine ever </h4>
+			<button ng-click="add(1)" class="button">Add</button>
+			<button ng-click="subtract(1)" class="button">Subtract</button>
+			<button ng-click="reset()" class = "button">Reset </button>
+			<h4>Current count: {{ counter }}</h4>
+		</div>
+		
+		<div ng-controller= "PlayerController2">
+			{{programs}}
+		</div>
+
+		
+		<div>
+			{{ 10 * 5 | currency}}
+		</div>
+	</div>
+	
+	
+	
+	</body>
+</html>
